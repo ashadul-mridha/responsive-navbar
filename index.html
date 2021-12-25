@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive NavBar</title>
+    <style>
+        body{
+            
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 0px auto;
+        }
+        .logo{
+            font-size: 30px;
+            font-weight: 600;
+            color: rgb(64, 182, 182);
+            font-family: Tahoma;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        ul li{
+            margin: 0px 10px;
+            color: rgb(29, 25, 25);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        ul li:hover{
+            color: rgb(216, 76, 51);
+            cursor: pointer;
+        }
+        .icon{
+            color: rgb(46, 44, 44);
+            display: none;
+        }
+        .displayBlock{
+            visibility: visible;
+        }
+
+        @media only screen and (max-width:900px) {
+            .icon{
+                display: block;
+            }
+            ul{
+                visibility: hidden;
+                position: fixed;
+                top: 50px;
+                left: 0px;
+                background-color: rgb(32, 28, 28);
+                width: 100%;
+                color: white;
+                height: 60vh;
+                flex-direction: column;
+                align-items: center;
+                margin: 0px;
+            }
+            ul li{
+                color: tomato;
+                margin-top: 5px;
+            }
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/b98d090fd4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div>
+            <label for="logo" class="logo">NavBar</label>
+        </div>
+
+        <ul id="menu-icon">
+            <li>Home</li>
+            <li>About</li>
+            <li>Service</li>
+            <li>Blog</li>
+            <li>Contact</li>
+        </ul>
+        <div id="icon" class="icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <script>
+        const icon = document.getElementById('icon');
+        const menuIcon = document.getElementById('menu-icon');
+        icon.addEventListener('click', () => {
+            menuIcon.classList.toggle('displayBlock');
+        })
+    </script>
+</body>
+</html>
